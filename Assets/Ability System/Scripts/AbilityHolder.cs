@@ -17,7 +17,7 @@ namespace William_Douglass
             cooldown
         }
 
-        AbilityState state = AbilityState.ready;
+        // AbilityState state = AbilityState.ready;
 
         #region Input
 

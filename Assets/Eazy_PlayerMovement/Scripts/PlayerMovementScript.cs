@@ -71,7 +71,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     #endregion
 
-
+    private bool intnteruptFixedUpdate = false;
 
     void Awake()
     {
@@ -81,7 +81,8 @@ public class PlayerMovementScript : MonoBehaviour
 
 
     private void FixedUpdate()
-    {
+    {   
+        if (!intnteruptFixedUpdate){
         InitFrameValues();
         HandleGravity();
         HandleCoyoteAndBuffer();
@@ -90,6 +91,8 @@ public class PlayerMovementScript : MonoBehaviour
         HandleFalling();
         HandlePlatforms();
         ApplyMotion();
+        }
+
     }
 
 
@@ -313,7 +316,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     #endregion
 
-    #region Getters For Animation
+    #region Getters and Setters For Animation
 
     public Vector2 GetVelocity()
     {
@@ -335,6 +338,15 @@ public class PlayerMovementScript : MonoBehaviour
     public float GetHorizontalInput()
     {
         return horizontalInput;
+    }
+
+    public void SetIntnteruptFixedUpdate(bool set)
+    {
+        intnteruptFixedUpdate = set;
+    }
+    public bool GetIntnteruptFixedUpdate()
+    {
+        return intnteruptFixedUpdate;
     }
 
     #endregion
